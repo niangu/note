@@ -1,0 +1,36 @@
+conda list //查看安装了哪些包。
+conda env list 或 conda info -e 查看当前存在哪些虚拟环境
+conda update conda 检查更新当前conda
+
+3、创建Python虚拟环境。
+使用 conda create -n your_env_name python=X.X（2.7、3.6等） anaconda 命令创建python版本为X.X、名字为your_env_name的虚拟环境。your_env_name文件可以在Anaconda安装目录envs文件下找到。
+
+# 指定python版本为2.7，注意至少需要指定python版本或者要安装的包# 后一种情况下，自动安装最新python版本
+conda create -n env_name python=2.7
+# 同时安装必要的包
+conda create -n env_name numpy matplotlib python=2.7
+
+使用如下命令即可 激活你的虚拟环境(即将python的版本改变)。
+
+
+Linux:  source activate your_env_name(虚拟环境名称)
+
+使用命令conda install -n your_env_name [package]即可安装package到your_env_name中
+
+关闭虚拟环境(即从当前环境退出返回使用PATH环境中的默认python版本)。
+deactivate env_name，也可以使用`activate root`切回root环境
+Linux下使用 source deactivate 
+移除环境
+   使用命令conda remove -n your_env_name(虚拟环境名称) --all， 即可删除。
+
+
+删除环境中的某个包。
+   使用命令conda remove --name $your_env_name  $package_name 即可
+
+
+
+8、设置国内镜像
+# 添加Anaconda的TUNA镜像
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+# TUNA的help中镜像地址加有引号，需要去掉
+
